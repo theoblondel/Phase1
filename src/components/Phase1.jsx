@@ -277,7 +277,7 @@ export default function Phase1Presentation() {
             </div>
             <div className="text-sm">hello@theoblondel.ch</div>
           </motion.div>
-          <p className="mt-4 text-xs text-slate-500">Document généré par Théo Blondel — {new Date().toLocaleDateString("fr-CH")}</p>
+          <p className="mt-4 text-xs text-slate-500">par Théo Blondel — {new Date().toLocaleDateString("fr-CH")}</p>
         </motion.section>
       </main>
     </div>
