@@ -1,6 +1,15 @@
-import { motion } from "framer-motion";
+import { motion, useRef, useScroll, useTransform } from "framer-motion";
 
 export default function Phase1Presentation() {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"]
+  });
+  
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const backgroundOpacity = useTransform(scrollYProgress, [0, 0.5], [0.4, 0.1]);
+
   const fadeUp = {
     hidden: { opacity: 0, y: 20 },
     show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
@@ -55,7 +64,7 @@ export default function Phase1Presentation() {
   const handlePrint = () => window.print();
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white text-slate-800">
+    <div ref={containerRef} className="min-h-screen bg-gradient-to-b from-blue-50 to-white text-slate-800">
       {/* Print styles */}
       <style>{`
         @page { size: A4; margin: 16mm; }
@@ -68,13 +77,19 @@ export default function Phase1Presentation() {
       `}</style>
 
       <header className="relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none opacity-40">
+        <motion.div 
+          className="absolute inset-0 pointer-events-none"
+          style={{ 
+            y: backgroundY,
+            opacity: backgroundOpacity
+          }}
+        >
           <svg className="w-full h-full" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="100" cy="100" r="200" className="fill-blue-100" />
             <circle cx="520" cy="180" r="160" className="fill-cyan-100" />
             <circle cx="300" cy="520" r="220" className="fill-indigo-100" />
           </svg>
-        </div>
+        </motion.div>
         <div className="max-w-5xl mx-auto px-6 py-14">
           <motion.div 
             initial={{ opacity: 0, y: 20 }} 
