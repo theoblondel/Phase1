@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Custom global styles can be added here.  At the moment we rely
+ * entirely on Tailwind classes for styling.  The '@tailwind'
+ * directives above import Tailwind's base styles, component
+ * utilities and utility classes.  Without them your page would
+ * appear unstyled.
+ */
