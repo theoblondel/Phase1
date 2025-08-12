@@ -156,7 +156,7 @@ export default function Phase1Presentation() {
               variants={slideInLeft}
               whileHover={{ scale: 1.02, boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}
               transition={{ duration: 0.3 }}
-              src="/photo-entreprise.jpg" 
+              src="/IMG_9021.heic" 
               alt="Bureaux WaweMind" 
               className="w-full h-64 object-cover rounded-2xl shadow cursor-pointer" 
             />
