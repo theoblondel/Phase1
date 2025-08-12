@@ -1,4 +1,5 @@
-import { motion, useRef, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export default function Phase1Presentation() {
   const containerRef = useRef(null);
